@@ -19,7 +19,7 @@ You must write an algorithm with O(log n) runtime complexity.
 
 */
 
-let nums = [1,3,5,6,7,8];
+let nums = [1,3,5,6];
 let target1 = 5;
 let target2 = 2;
 let target3 = 7;
@@ -42,6 +42,6 @@ var searchInsert = function(nums, target) {
     return left;
 };
 
-console.log(searchInsert(nums, target1));
-console.log(searchInsert(nums, target3));
+// console.log(searchInsert(nums, target1));
+// console.log(searchInsert(nums, target3));
 console.log(searchInsert(nums, target2));
