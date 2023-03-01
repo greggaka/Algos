@@ -1,4 +1,4 @@
-/*21 E - Merge Two Linked Lists
+/*21 E - Merge Two Sorted Linked Lists
 You are given the heads of two sorted linked lists list1 and list2.
 
 Merge the two lists in a one sorted list. The list should be made by splicing together the nodes of the first two lists.
