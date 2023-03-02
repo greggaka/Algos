@@ -1,0 +1,62 @@
+/*Leetcode 888 E - Merge Sorted Array
+
+You are given two integer arrays nums1 and nums2, sorted in non-decreasing order, and two integers m and n, representing the number of elements in nums1 and nums2 respectively.
+
+Merge nums1 and nums2 into a single array sorted in non-decreasing order.
+
+The final sorted array should not be returned by the function, but instead be stored inside the array nums1. To accommodate this, nums1 has a length of m + n, where the first m elements denote the elements that should be merged, and the last n elements are set to 0 and should be ignored. nums2 has a length of n.
+*/
+
+let nums1 = [1,2,3,0,0,0];
+let m1 = 3;
+let nums2 = [2,5,6];
+let n2 = 3;
+let nums3 = [-1,0,0,3,3,3,0,0,0];
+let m3 = 6;
+let nums4 = [1,2,2];
+let n4 = 3;
+let nums5 = [1,2,2];
+let m5 = 3;
+let nums6 = [-1,0,0,3,3,3,0,0,0];
+let n6 = 6;
+
+/*PseudoCode
+1. Initiate new array (arr1) w/ first m values
+*/
+
+
+var merge = function(nums1, m, nums2, n) {
+    //Initiate new array (arr1) w/ first m values
+    let arr1 = [];
+    for (let i = 0; i<m; i++) {
+        arr1[i] = nums1[i];
+    }
+
+    //initiate 2 pointers. One for arr1, the second for nums2.
+    let p1 = 0;
+    let p2 = 0;
+
+    //initiate another pointer to actually write values into nums1.
+    //set for loop to run as long as pointer is less than the length of what nums1 should be
+    //this is determined by adding m + n
+    for (let p = 0; p<m+n; p++) {
+
+        //checks that n is always less than or equal to p2, or else may get undefined values bc of condition p<m+n.
+        //also checks that p1 is less than m or else p1 is outside boundary of m
+        //if the value at p1 in arr1 is less than the value at p2 in nums2, assign arr[p1] to nums1[p]
+        if (n <= p2 || (p1 < m && arr1[p1] < nums2[p2])) {
+            nums1[p] = arr1[p1];
+            p1++;
+        }
+        //if the value at p2 in nums2 is less than the value of p1 in arr1, assign nums2[p2] to nums1[p]
+        else {
+            nums1[p] = nums2[p2];
+            p2++;
+        }
+    }
+    return nums1
+};
+
+console.log(merge(nums1, m1, nums2, n2));
+console.log(merge(nums3, m3, nums4, n4));
+console.log(merge(nums5, m5, nums6, n6));
